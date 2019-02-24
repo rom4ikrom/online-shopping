@@ -20,13 +20,21 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Online Shopping - ${title}</title>
+<!-- fix favicon.ico error -->
+<link rel="shortcut icon" href="#" />
 
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/bootstrap.css" rel="stylesheet">
+
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/style-template.css" rel="stylesheet">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
 <link href="${css}/myapp.css" rel="stylesheet">
 
 <style>
@@ -37,7 +45,10 @@ body {
 
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
+
+<title>Online Shopping - ${title}</title>
 
 </head>
 
@@ -71,6 +82,11 @@ body {
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<!-- Loading only when user clicks show product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 
 		</div>
 
@@ -80,9 +96,16 @@ body {
 
 	</div>
 
-	<!-- Bootstrap core JavaScript -->
+	<!-- jQuery core JavaScript -->
 	<script src="${js}/jquery.js"></script>
+	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/bootstrap.bundle.min.js"></script>
+	
+	<!-- DataTable Plugin -->
+	<script src="${js}/jquery.dataTables.js"></script>
+	
+	<script src="${js}/dataTables.bootstrap4.js"></script>
+	
 
 	<!-- Self coded javascript -->
 	<script src="${js}/myapp.js"></script>

@@ -20,3 +20,9 @@ body {
 	position: absolute;
 	bottom: 0;
 }
+
+.dataTableImg {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
