@@ -26,3 +26,7 @@ body {
 	height: 100px;
 	object-fit: cover;
 }
+
+.help-block {
+	color: #ff0000;
+}

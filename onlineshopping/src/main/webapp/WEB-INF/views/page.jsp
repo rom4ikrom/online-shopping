@@ -29,11 +29,9 @@
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="${css}/style-template.css" rel="stylesheet">
+<%-- <link href="${css}/style-template.css" rel="stylesheet"> --%>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
 
 <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -86,6 +84,11 @@ body {
 			<!-- Loading only when user clicks show product -->
 			<c:if test="${userClickShowProduct == true}">
 				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
+			<!-- Loading only when user clicks manage products -->
+			<c:if test="${userClickManageProducts == true}">
+				<%@include file="manageProducts.jsp"%>
 			</c:if>
 
 		</div>
