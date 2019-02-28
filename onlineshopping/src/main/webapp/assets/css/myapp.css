@@ -91,10 +91,10 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 /* Fix bootbox compatibility with Bootstrap 4 */
-.bootbox .modal-header h4 {
+.bootbox .modal-header h4, .modal .modal-header .modal-title {
     order: 0;
 }
-.bootbox .modal-header button {
+.bootbox .modal-header button, .modal .modal-header button {
     order: 1;
 }
 

@@ -120,6 +120,18 @@
 									itemValue="id">
 								</sf:select>
 
+								<c:if test="${product.id == 0}">
+
+									<div class="text-right">
+										<br />
+										<button type="button" data-toggle="modal"
+											data-target="#myCategoryModal" class="btn btn-warning btn-sm">Add
+											Category</button>
+									</div>
+
+
+								</c:if>
+
 							</div>
 						</div>
 
@@ -154,10 +166,10 @@
 	<div class="row">
 
 		<div class="col-md-12">
-		
+
 			<h3>Available Products</h3>
-			<hr/>
-		
+			<hr />
+
 		</div>
 
 		<div class="col-md-12">
@@ -200,6 +212,69 @@
 
 		</div>
 
+	</div>
+	
+	<div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
+	
+		<div class="modal-dialog" role="document">
+		
+			<div class="modal-content">
+				<!-- Modal header -->
+				<div class="modal-header">
+				
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					
+					<h4 class="modal-title">Add new Category</h4>
+				
+				</div>
+				<div class="modal-body">
+					<!-- Category Form -->
+					
+					<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category" method="POST"
+							class="form-horizontal">
+						
+						<div class="form-group row">
+						
+							<label for="category_name" class="col-form-label col-md-4">Category Name</label>
+							<div class="col-md-8">
+							
+								<sf:input type="text" path="name" id="category_name" class="form-control"/>
+							
+							</div>
+							
+						</div>
+						
+						<div class="form-group row">
+						
+							<label for="category_description" class="col-form-label col-md-4">Category Description</label>
+							<div class="col-md-8">
+							
+								<sf:textarea cols="" rows="5" type="text" path="description" id="category_description" class="form-control"></sf:textarea>
+							
+							</div>
+							
+						</div>
+						
+						<div class="form-group row">
+						
+							<div class="offset-md-4 col-md-8">
+							
+								<input type="submit" value="Add Category" class="btn btn-primary"/>
+							
+							</div>
+							
+						</div>
+						
+					</sf:form>
+					
+				</div>
+			
+			</div>
+		
+		</div>
+	
 	</div>
 
 </div>
