@@ -34,12 +34,45 @@
 			</ul>
 			
 			<ul class="navbar-nav ml-auto">
+			
 				<li class="nav-item" id="register">
 					<a class="nav-link" href="${contextRoot}/register">Sign Up</a>
 				</li>
 				<li class="nav-item" id="login">
 					<a class="nav-link" href="${contextRoot}/login">Login</a>
 				</li>
+				
+				<li class="dropdown nav-item">
+					<a href="javascript:void(0)"
+						class="btn btn-default dropdown-toggle nav-link"
+						id="dropdownMenu1"
+						data-toggle="dropdown">
+							
+							${userModel.fullName}
+							<span class="caret"></span>
+							
+					</a>
+					
+					<ul class="dropdown-menu">
+					
+						<li class="nav-item" >
+							<a class="nav-dropdown-link" href="${contextRoot}/cart">
+								<span class="fa fa-shopping-cart"></span>
+								<span class="badge">${userModel.cart.cartLines}</span>
+								- &#8377; ${userModel.cart.grandTotal}
+							</a>
+						</li>
+						
+						<hr/>
+						
+						<li>
+							<a class="nav-dropdown-link" href="${contextRoot}/logout">Logout</a>
+						</li>
+					
+					</ul>
+					
+				</li>
+				
 			</ul>
 			
 			

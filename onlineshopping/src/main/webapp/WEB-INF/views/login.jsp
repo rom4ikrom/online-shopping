@@ -71,58 +71,79 @@ body {
 		<!-- Page Content -->
 
 		<div class="content">
-			<div class="row">
+
+			<div class="container">
 			
-				<div class="offset-md-3 col-md-6">
-					<div class="card">
-					
-						<div class="card-header bg-primary text-white">
-							Login
-						</div>
+			<!-- when credentials are wrong -->
+			
+			<c:if test="${not empty message}">
+
+					<div class="row">
+
+						<div class="offset-md-3 col-md-6">
 						
-						<div class="card-body bg-white">
-
-							<form action="${contextRoot}/login" method="POST" class="form-horizontal" id="loginForm">
-
-								<div class="form-group row">
-									<div class="col-md-4">
-										<label class="col-form-label" for="username">Email</label>
-									</div>
-									<div class="col-md-8">
-										<input class="form-control" type="text" name="username"
-											placeholder="Username" />
-									</div>
-								</div>
-
-								<div class="form-group row">
-									<div class="col-md-4">
-										<label class="col-form-label" for="password">Password</label>
-									</div>
-									<div class="col-md-8">
-										<input class="form-control" type="password" name="password"
-											placeholder="Password" />
-									</div>
-								</div>
-								
-								<div class="form-group row">
-									<div class="offset-md-4 col-md-8">
-										<input class="btn btn-primary" value="Login" type="submit"/>
-									</div>
-								</div>
-							
-							</form>
-
-						</div>
+							<div class="alert alert-danger">${message}</div>
 						
-						<div class="card-footer">
-							<div class="text-right">
-								New User - <a href="${contextRoot}/register">Register Here</a> 
-							</div>
 						</div>
-						
 					</div>
+
+				</c:if>
+
+				<div class="row">
+
+					<div class="offset-md-3 col-md-6">
+						<div class="card">
+
+							<div class="card-header bg-primary text-white">Login</div>
+
+							<div class="card-body bg-white">
+
+								<form action="${contextRoot}/login" method="POST"
+									class="form-horizontal" id="loginForm">
+
+									<div class="form-group row">
+										<div class="col-md-4">
+											<label class="col-form-label" for="username">Email</label>
+										</div>
+										<div class="col-md-8">
+											<input class="form-control" type="text" name="username"
+												placeholder="Username" />
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-4">
+											<label class="col-form-label" for="password">Password</label>
+										</div>
+										<div class="col-md-8">
+											<input class="form-control" type="password" name="password"
+												placeholder="Password" />
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="offset-md-4 col-md-8">
+											<input class="btn btn-primary" value="Login" type="submit" />
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}" />
+										</div>
+									</div>
+
+								</form>
+
+							</div>
+
+							<div class="card-footer">
+								<div class="text-right">
+									New User - <a href="${contextRoot}/register">Register Here</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
 				</div>
-			
+				<!-- end of row -->
 			</div>
 		</div>
 

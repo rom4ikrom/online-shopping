@@ -98,3 +98,20 @@ input:checked + .slider:before {
     order: 1;
 }
 
+.nav-dropdown-link {
+	color: #777c84;
+	padding: 0.5rem;
+	padding-left: 1rem;
+    
+}
+
+.nav-dropdown-link:hover {
+	color: #434951;
+	text-decoration: none;
+}
+
+.dropdown-menu hr {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
