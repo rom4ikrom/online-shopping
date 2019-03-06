@@ -39,12 +39,13 @@
 				</div>
 				
 				<div class="card-body bg-white">
-					<!-- display address details -->
-					<h4>${registerModel.billing.addressLineOne}</h4>
-					<h4>${registerModel.billing.addressLineTwo}</h4>
-					<h4>${registerModel.billing.city} - ${registerModel.billing.postalCode}</h4>
-					<h4>${registerModel.billing.state} - ${registerModel.billing.country}</h4>
-					
+					<div class="text-center">
+						<!-- display address details -->
+						<h4>${registerModel.billing.addressLineOne}</h4>
+						<h4>${registerModel.billing.addressLineTwo}</h4>
+						<h4>${registerModel.billing.city} - ${registerModel.billing.postalCode}</h4>
+						<h4>${registerModel.billing.state} - ${registerModel.billing.country}</h4>
+					</div>
 				</div>
 				
 				<div class="card-footer">
