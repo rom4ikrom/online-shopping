@@ -1,6 +1,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 
+	<c:if test="${not empty message}">
+		
+		<div class="alert alert-info">
+			<h3 class="text-center">
+				${message}
+			</h3>
+		</div>
+		
+	</c:if>
+
 	<c:choose>
 		<c:when test="${not empty cartLines}">
 
@@ -31,7 +41,7 @@
 												<span class="unavailable">Not Available</span>
 											</c:if>
 										
-										<p>Brand - ${cartLine.product.name}</p>
+										<p>Brand - ${cartLine.product.brand}</p>
 										<p>Description - ${cartLine.product.description}</p>
 									</div>
 								</div>
@@ -39,18 +49,18 @@
 							<td data-th="Price">&#8377; ${cartLine.buyingPrice}</td>
 							
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="${cartLine.productCount}">
+								<input type="number" id="count_${cartLine.id}" min="1" max="3" class="form-control text-center" value="${cartLine.productCount}">
 							</td>
 							
 							<td data-th="Subtotal" class="text-center">&#8377; ${cartLine.total}</td>
 							
 							<td class="actions text-center" data-th="">
-								<button class="btn btn-info btn-md">
+								<button type="button" name="refreshCart" value="${cartLine.id}" class="btn btn-info btn-md">
 									<span class="fa fa-refresh"></span>
 								</button>
-								<button class="btn btn-danger btn-md">
+								<a href="${contextRoot}/cart/${cartLine.id}/delete" class="btn btn-danger btn-md">
 									<span class="fa fa-trash-o"></span>
-								</button>
+								</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -62,7 +72,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#" class="btn btn-warning"><span class="fa fa-angle-left"></span> Continue Shopping</a>
+							<a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="fa fa-angle-left"></span> Continue Shopping</a>
 						</td>
 						
 						<td colspan="2 d-none d-sm-block"></td>
