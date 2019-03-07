@@ -163,3 +163,13 @@ input:checked + .slider:before {
 	color: #fff;
 }
 
+.cartImg {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+.unavailable {
+	color: red;
+}
+

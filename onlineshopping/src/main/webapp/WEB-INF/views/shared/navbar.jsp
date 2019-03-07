@@ -47,7 +47,7 @@
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
-				<li class="dropdown nav-item">
+				<li class="dropdown nav-item" id="userCart">
 					<a href="javascript:void(0)"
 						class="btn btn-default dropdown-toggle nav-link"
 						id="dropdownMenu1"
