@@ -66,6 +66,18 @@ CREATE TABLE cart (
 	CONSTRAINT pk_cart_id PRIMARY KEY (id)
 );
 
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id ) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);
+
 -- adding three categories
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Television', 'This is description for Television category!', 'CAT_2.png', true);
@@ -74,7 +86,7 @@ INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', '
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2y$12$cY.ndP5LJsqKD1tg9/T4Bu5r7klRSGD40Ujm6gC8.Rg.TSEpXZ6.i', 'vk@gmail.com', '8888888888');
+VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2a$10$K2qoavyAX6XvqSkdno3NjuHoTolyj4vObWRNN1UucFe.tO.L5OgZS', 'vk@gmail.com', '8888888888');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
 VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '$2y$12$fAPJU7RzuGwS9YTaplJ81OMu.OraSIqeJ1ylrEPsv9Ju36Wjb7L/O', 'rj@gmail.com', '9999999999');

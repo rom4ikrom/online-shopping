@@ -22,22 +22,26 @@ $(function() {
 	$('#a_' + menu).addClass('active');
 	break;
 	}
-
-	//to tackle the csrf token
 	
-	var token = $('meta[name="_csrf"]').attr('content');
-	var header = $('meta[name="_csrf_header"]').attr('content');
 	
-	if(token.length > 0 && header.length > 0) {
+	if (!(window.menu == "Login")) {
+		//to tackle the csrf token
 		
-		//set the token header for the ajax request
-		$(document).ajaxSend(function(e, xhr, options) {
-			
-			xhr.setRequestHeader(header, token);
-			
-		});
+		var token = $('meta[name="_csrf"]').attr('content');
+		var header = $('meta[name="_csrf_header"]').attr('content');
 		
+		if(token.length > 0 && header.length > 0) {
+			
+			//set the token header for the ajax request
+			$(document).ajaxSend(function(e, xhr, options) {
+				
+				xhr.setRequestHeader(header, token);
+				
+			});
+			
+		}
 	}
+	
 
 	// code for jquery dataTable
 
@@ -110,13 +114,18 @@ $(function() {
 							mRender: function(data, type, row) {
 								var str = '';
 								str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="fa fa-eye"></span></a> &#160;';
-
-								if(row.quantity < 1) {
-									str += '<a href="javascritp:void(0)" class="btn btn-success disabled"><span class="fa fa-shopping-cart"></span></a>';
+								
+								if(userRole == 'ADMIN') {
+									str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning"><span class="fa fa-pencil"></span></a>';
 								} else {
-									str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="fa fa-shopping-cart"></span></a>';
-								}
+									if(row.quantity < 1) {
+										str += '<a href="javascritp:void(0)" class="btn btn-success disabled"><span class="fa fa-shopping-cart"></span></a>';
+									} else {
+										
+										str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="fa fa-shopping-cart"></span></a>';
 
+									}
+								}
 
 								return str;
 							}

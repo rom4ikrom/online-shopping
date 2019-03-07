@@ -73,17 +73,32 @@ body {
 		<div class="content">
 
 			<div class="container">
-			
-			<!-- when credentials are wrong -->
-			
-			<c:if test="${not empty message}">
+
+				<!-- when credentials are wrong -->
+
+				<c:if test="${not empty message}">
 
 					<div class="row">
 
 						<div class="offset-md-3 col-md-6">
-						
+
 							<div class="alert alert-danger">${message}</div>
-						
+
+						</div>
+					</div>
+
+				</c:if>
+
+				<!-- when user logout -->
+
+				<c:if test="${not empty logout}">
+
+					<div class="row">
+
+						<div class="offset-md-3 col-md-6">
+
+							<div class="alert alert-success">${logout}</div>
+
 						</div>
 					</div>
 

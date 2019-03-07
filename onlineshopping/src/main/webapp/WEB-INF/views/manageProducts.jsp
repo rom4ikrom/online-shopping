@@ -174,107 +174,117 @@
 
 		<div class="col-md-12">
 
-			<div style="overflow: auto">
+			<div class="container-fluid">
 
-				<!-- Products table for Admin -->
-				<table id="adminProductsTable"
-					class="table table-striped table bordered">
+				<div class="table-responsive">
 
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
-						</tr>
-					</thead>
+					<!-- Products table for Admin -->
+					<table id="adminProductsTable"
+						class="table table-striped table bordered">
 
-					<tfoot>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
-						</tr>
-					</tfoot>
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
 
-				</table>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</div>
 
 			</div>
 
 		</div>
 
 	</div>
-	
-	<div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
-	
+
+	<div class="modal fade" id="myCategoryModal" role="dialog"
+		tabindex="-1">
+
 		<div class="modal-dialog" role="document">
-		
+
 			<div class="modal-content">
 				<!-- Modal header -->
 				<div class="modal-header">
-				
+
 					<button type="button" class="close" data-dismiss="modal">
 						<span>&times;</span>
 					</button>
-					
+
 					<h4 class="modal-title">Add new Category</h4>
-				
+
 				</div>
 				<div class="modal-body">
 					<!-- Category Form -->
-					
-					<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category" method="POST"
-							class="form-horizontal">
-						
+
+					<sf:form id="categoryForm" modelAttribute="category"
+						action="${contextRoot}/manage/category" method="POST"
+						class="form-horizontal">
+
 						<div class="form-group row">
-						
-							<label for="category_name" class="col-form-label col-md-4">Category Name</label>
+
+							<label for="category_name" class="col-form-label col-md-4">Category
+								Name</label>
 							<div class="col-md-8">
-							
-								<sf:input type="text" path="name" id="category_name" class="form-control"/>
-							
+
+								<sf:input type="text" path="name" id="category_name"
+									class="form-control" />
+
 							</div>
-							
+
 						</div>
-						
+
 						<div class="form-group row">
-						
-							<label for="category_description" class="col-form-label col-md-4">Category Description</label>
+
+							<label for="category_description" class="col-form-label col-md-4">Category
+								Description</label>
 							<div class="col-md-8">
-							
-								<sf:textarea cols="" rows="5" type="text" path="description" id="category_description" class="form-control"></sf:textarea>
-							
+
+								<sf:textarea cols="" rows="5" type="text" path="description"
+									id="category_description" class="form-control"></sf:textarea>
+
 							</div>
-							
+
 						</div>
-						
+
 						<div class="form-group row">
-						
+
 							<div class="offset-md-4 col-md-8">
-							
-								<input type="submit" value="Add Category" class="btn btn-primary"/>
-							
+
+								<input type="submit" value="Add Category"
+									class="btn btn-primary" />
+
 							</div>
-							
+
 						</div>
-						
+
 					</sf:form>
-					
+
 				</div>
-			
+
 			</div>
-		
+
 		</div>
-	
+
 	</div>
 
 </div>
