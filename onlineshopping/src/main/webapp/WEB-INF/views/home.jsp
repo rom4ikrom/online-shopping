@@ -1,7 +1,9 @@
+<script src="${js}/angular.js"></script>
+<script src="${js}/productsController.js"></script>
 
-<div class="container">
+<div class="container" ng-app="ShoppingApp" ng-controller="ProductController as pCtrl">
 
-	<div class="row">
+	<div class="row" ng-init="pCtrl.fetchProducts()">
 
 		<div class="col-lg-3">
 
@@ -47,17 +49,16 @@
 
 			<div class="row">
 
-				<div class="col-lg-4 col-md-6 mb-4">
+				<div class="col-lg-4 col-md-6 mb-4" ng-repeat="product in pCtrl.mvProducts">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
+						<a href="#"><img class="card-img-top homePageImg"
+							src="${img}/{{product.code}}.jpg" alt="{{product.name}}"></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Item One</a>
+								<a ng-href="${contextRoot}/show/{{product.id}}/product">{{product.name}}</a>
 							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
+							<h5>&#36;{{product.unitPrice}}</h5>
+							<p class="card-text">{{product.description}}</p>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
@@ -65,7 +66,8 @@
 						</div>
 					</div>
 				</div>
-
+				
+				<!--  
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"

@@ -173,3 +173,8 @@ input:checked + .slider:before {
 	color: red;
 }
 
+/* Home page image */
+.homePageImg {
+	height: 250px;
+	object-fit: cover;
+}

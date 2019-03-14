@@ -347,7 +347,7 @@ $(function() {
 	//---------------------------
 	
 	
-
+	//validating the login form
 	var $loginForm = $('#loginForm');
 
 	if($loginForm.length) {
